@@ -101,7 +101,7 @@ function Home() {
 
   return (
     <div className="bg-[url('./assets/images/bg-mobile-light.jpg')] dark:bg-[url('./assets/images/bg-mobile-dark.jpg')] dark:bg-gray-900 bg-no-repeat width bg-contain bg-gray-300 min-h-screen md:bg-[url('./assets/images/bg-desktop-light.jpg')] dark:md:bg-[url('./assets/images/bg-desktop-dark.jpg')]">
-      <Header />
+      <Header marginBottomClass="md:mb-[20px]" />
       <main className="container mx-auto px-4 md:max-w-xl md:shadow-2xl">
         <TodoCreate createTodo={createTodo} />
         <DragDropContext onDragEnd={handleDragEnd}>

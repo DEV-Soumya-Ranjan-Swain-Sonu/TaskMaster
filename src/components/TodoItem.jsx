@@ -22,7 +22,6 @@ const TodoItem = React.forwardRef(({ todo, removeTodo, updateTodo, startEditing,
                             border: 'none',
                             background: 'transparent',
                             outline: 'none',
-                            color: 'inherit',
                             width: '100%'
                         }}
                         className="grow text-gray-600 dark:text-gray-200 dark:bg-gray-800 "

@@ -1,8 +1,8 @@
 import { useState } from "react";
-import './styles.css';
 import Logo from "../Img/Logo.png";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import Header from "./Header";
 
 const Signup = () => {
     const navigate = useNavigate();
@@ -24,7 +24,7 @@ const Signup = () => {
 
         const newUserDetails = {
             email: email,
-            password: password, 
+            password: password,
             name: name
         };
         userDetailsArray.push(newUserDetails);
@@ -45,53 +45,54 @@ const Signup = () => {
     function handlePassword(event) {
         setPassword(event.target.value);
     }
-    function handleName(event){
+    function handleName(event) {
         setName(event.target.value);
     }
 
     return (
-        <div className="page">
-            <div className="left-side">
-                <img className="img" src={Logo} alt="Logo" />
-            </div>
-            <div className="right-side">
-                <h1 className="title">Welcome to TaskMaster</h1>
-                <h2 className="subtitle">Please, Enter your information to Create an Account.</h2>
-                <h2 className="field-name">Name</h2>
-                <input
-                    className="input-field"
-                    value={name}
-                    id="name"
-                    onChange={handleName}
-                    placeholder="Enter your Full Name"
-                />
-                <h2 className="field-name">Email</h2>
-                <input
-                    className="input-field"
-                    value={email}
-                    id="email"
-                    onChange={handleEmail}
-                    placeholder="Enter your email"
-                />
-                <h2 className="field-name">Password</h2>
-                <input
-                    className="input-field"
-                    placeholder="Enter your password"
-                    id="password"
-                    onChange={handlePassword}
-                    type="password"
-                />
-                <div className="keep-signed">
-                    <input className="checkbox" type="checkbox" />
-                    <span className="subtitle">Remember me</span>
+        <>
+            <Header />
+            <div className="w-full h-screen flex flex-col md:flex-row">
+                <div className="w-full md:w-1/2 h-1/2 md:h-full dark:bg-slate-800 bg-gray-200 flex items-center justify-center">
+                    <img className="w-3/5" src={Logo} alt="Logo" />
                 </div>
-
-                <button className="sign-in" onClick={handleSignup}>Sign up</button>
-
-                <h2 className="subtitle">Already have an account? <a href="/">Sign In</a></h2>
-
+                <div className="w-full md:w-1/2 md:h-full flex flex-col dark:bg-slate-600 justify-center items-start p-8 md:pl-32 box-border">
+                    <h1 className="text-gray-800 dark:text-white font-roboto text-4xl mb-3">Welcome to TaskMaster</h1>
+                    <h2 className="text-gray-500 dark:text-slate-100 font-roboto text-lg font-light mb-2">Please, Enter your information to Create an Account.</h2>
+                    <h2 className="text-gray-600 dark:text-slate-200 font-roboto text-lg mb-2">Name</h2>
+                    <input
+                        className="w-full md:w-3/5 md:h-10 rounded-lg border dark:border-gray-100 dark:bg-slate-500 border-gray-400 pl-2 text-lg text-gray-600 box-border mb-3 focus:outline-none focus:ring-2 focus:ring-purple-500  dark:placeholder-gray-100"
+                        value={name}
+                        id="name"
+                        onChange={handleName}
+                        placeholder="Enter your Full Name"
+                    />
+                    <h2 className="text-gray-600 dark:text-slate-200 font-roboto text-lg mb-2">Email</h2>
+                    <input
+                        className="w-full md:w-3/5 md:h-10 rounded-lg border dark:border-gray-100 dark:bg-slate-500 border-gray-400 pl-2 text-lg text-gray-600 box-border mb-3 focus:outline-none focus:ring-2 focus:ring-purple-500  dark:placeholder-gray-100"
+                        value={email}
+                        id="email"
+                        onChange={handleEmail}
+                        placeholder="Enter your email"
+                    />
+                    <h2 className="text-gray-600 dark:text-slate-200 font-roboto text-lg mb-2">Password</h2>
+                    <input
+                        className="w-full md:w-3/5 md:h-10 rounded-lg border dark:border-gray-100 dark:bg-slate-500 border-gray-400 pl-2 text-lg text-gray-600 box-border mb-4 focus:outline-none focus:ring-2 focus:ring-purple-500 dark:placeholder-gray-100"
+                        placeholder="Enter your password"
+                        id="password"
+                        onChange={handlePassword}
+                        type="password"
+                    />
+                    <div className="flex items-center mb-4">
+                        <input className="mr-2 h-4 w-4 border border-gray-800" type="checkbox" />
+                        <span className="text-gray-500 dark:text-slate-100 font-roboto text-lg">Remember me</span>
+                    </div>
+                    <button className="w-full md:w-3/5 md:h-10 pt-[5px] pb-[5px] rounded-lg bg-purple-500 dark:bg-[#dc3dff] text-white text-lg font-medium mb-4 dark:hover:bg-[#cc23c5] hover:bg-purple-700"
+                        onClick={handleSignup}>Sign up</button>
+                    <h2 className="text-gray-500  dark:text-slate-100 font-roboto text-lg font-light">Already have an account? <a href="/" className="text-purple-500 font-bold dark:text-[#dc3dff] dark:hover:text-[#cc23c5] hover:text-purple-700">Sign In</a></h2>
+                </div>
             </div>
-        </div>
+        </>
     );
 };
 
